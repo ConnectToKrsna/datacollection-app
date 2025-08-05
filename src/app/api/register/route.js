@@ -1,5 +1,5 @@
-import dbConnect from '../../../lib/dbConnect';
-import Registration from '../../../models/Registration';
+import dbConnect from '../../lib/dbConnect';
+import Registration from '../../models/Registration';
 
 export async function POST(request) {
   try {

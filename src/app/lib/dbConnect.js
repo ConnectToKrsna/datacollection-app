@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = "mongodb+srv://connecttokrishnanow:connectkrishna@cluster0.klv9jyb.mongodb.net/dataCollection"
+
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI correctly');

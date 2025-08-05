@@ -35,7 +35,16 @@ export default function Home() {
         <input name="name" placeholder="Name" onChange={handleChange} />
         <input name="email" type="email" placeholder="Email" onChange={handleChange} />
         <input name="phone" placeholder="Phone" onChange={handleChange} />
-        <input name="area" placeholder="Area" onChange={handleChange} />
+
+        {/* Updated area as a select dropdown */}
+        <select name="area" onChange={handleChange} value={formData.area}>
+          <option value="">Select Area</option>
+          <option value="muradnagar">Muradnagar</option>
+          <option value="temple preaching">Temple Preaching</option>
+          <option value="south ghaziabad">South Ghaziabad</option>
+          <option value="east ghaziabad">East Ghaziabad</option>
+        </select>
+
         <textarea
           name="remarks"
           placeholder="Remarks (optional)"

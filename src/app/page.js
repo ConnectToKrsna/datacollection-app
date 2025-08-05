@@ -2,15 +2,17 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-
+import Link from 'next/link';
 export default function Home() {
-  const [formData, setFormData] = useState({
+  const initialForm = {
     name: '',
     email: '',
     phone: '',
     area: '',
     remarks: '',
-  });
+  };
+
+  const [formData, setFormData] = useState(initialForm);
   const [message, setMessage] = useState('');
 
   const handleChange = (e) =>
@@ -26,18 +28,42 @@ export default function Home() {
 
     const data = await res.json();
     setMessage(data.message);
+
+    if (res.ok) {
+      alert('Submitted successfully!');
+      setFormData(initialForm); // Reset form
+    }
   };
 
   return (
     <main className={styles.container}>
       <h1 className={styles.heading}>Data Collection Form for IYF GZB</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input name="name" placeholder="Name" onChange={handleChange} />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} />
-        <input name="phone" placeholder="Phone" onChange={handleChange} />
+        <input
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <input
+          name="phone"
+          placeholder="Phone"
+          value={formData.phone}
+          onChange={handleChange}
+        />
 
-        {/* Updated area as a select dropdown */}
-        <select name="area" onChange={handleChange} value={formData.area}>
+        <select
+          name="area"
+          value={formData.area}
+          onChange={handleChange}
+        >
           <option value="">Select Area</option>
           <option value="muradnagar">Muradnagar</option>
           <option value="temple preaching">Temple Preaching</option>
@@ -49,11 +75,16 @@ export default function Home() {
           name="remarks"
           placeholder="Remarks (optional)"
           rows="4"
+          value={formData.remarks}
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
       </form>
       {message && <p className={styles.message}>{message}</p>}
+
+      <p className={styles.link}>
+  <Link href="/list">View Registered Data</Link>
+</p>
     </main>
   );
 }

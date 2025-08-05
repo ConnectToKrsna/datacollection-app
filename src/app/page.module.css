@@ -65,3 +65,18 @@
   font-weight: bold;
   font-size: 1.1rem;
 }
+.link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.link a {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}

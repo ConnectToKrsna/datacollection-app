@@ -16,7 +16,7 @@ export async function POST(request) {
 
     await newEntry.save();
 
-    return Response.json({ message: 'Registration successful!' }, { status: 201 });
+    return Response.json({ message: 'successful!' }, { status: 201 });
   } catch (error) {
     console.error(error);
     return Response.json({ message: 'Error saving data' }, { status: 500 });

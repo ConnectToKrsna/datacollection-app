@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './list.module.css';
 
-const ENTRIES_PER_PAGE = 6;
+const ENTRIES_PER_PAGE = 25;
 const AREAS = ['All', 'Muradnagar', 'Temple Preaching', 'South Ghaziabad', 'East Ghaziabad'];
 
 export default function ListPage() {
